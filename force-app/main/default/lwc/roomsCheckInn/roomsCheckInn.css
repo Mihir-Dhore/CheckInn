@@ -3,26 +3,72 @@
 }
 
 .slds-col {
-    padding: 10px; 
-    /* border: 1px solid #ddd;  */
+    padding: 10px;
 }
 
 .roomInfoHeading {
-    /* margin-left: 2%; */
     margin-bottom: 3%;
 }
-.slds-grid{
-    border: 1px solid #ddd; 
 
+.slds-grid {
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
+
+.formHeading {
+    text-align: center;
+}
+
+/* Filter Section */
+.roomTypes {
+    display: flex;
+    flex-direction: column;
+    background-color:#ddd;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    /* padding-left: 30px;
+    padding-right: 30px; */
+    margin-bottom: 20px;
+}
+.filterHead{
+    font-size: large;
+    color: rgb(0, 0, 0);
+}
+h1 {
+    padding: 10px;
+    margin: 5px;
+    /* border: 1px solid #ddd; */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.allRooms:hover {
+    background-color: #f36868;
+}
+
+.singleRoom:hover {
+    background-color: #98f14a;
+}
+
+.doubleRoom:hover {
+    background-color: #4c95ef;
+}
+
+.deluxeRoom:hover {
+    background-color: #d9e627;
+}
+
 @media (max-width: 767px) {
     .roomInfo {
         flex-direction: row;
-        /* align-items: center; */
     }
+
     .slds-col {
-        width: 100%; 
-        border: none; 
+        width: 100%;
+        border: none;
         margin-bottom: 10px;
     }
 }
