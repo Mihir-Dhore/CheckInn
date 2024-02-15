@@ -1,0 +1,28 @@
+.roomInfo {
+    margin-bottom: 20px;
+}
+
+.slds-col {
+    padding: 10px; 
+    /* border: 1px solid #ddd;  */
+}
+
+.roomInfoHeading {
+    /* margin-left: 2%; */
+    margin-bottom: 3%;
+}
+.slds-grid{
+    border: 1px solid #ddd; 
+
+}
+@media (max-width: 767px) {
+    .roomInfo {
+        flex-direction: row;
+        /* align-items: center; */
+    }
+    .slds-col {
+        width: 100%; 
+        border: none; 
+        margin-bottom: 10px;
+    }
+}

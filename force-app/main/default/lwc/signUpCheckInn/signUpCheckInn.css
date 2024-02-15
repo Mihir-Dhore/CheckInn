@@ -1,0 +1,15 @@
+.main{
+    background-color: #fff;
+    border: 1px solid #876565;
+    border-radius: 4px;
+    padding: 10px;
+}
+.button{
+    text-align: center;
+}
+.heading{
+    text-align: center;
+}
+.alreadyUser{
+    text-align: center;
+}

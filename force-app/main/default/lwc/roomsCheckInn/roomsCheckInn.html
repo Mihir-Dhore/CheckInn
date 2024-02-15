@@ -1,0 +1,87 @@
+<template>
+
+    <div class="slds-grid slds-wrap roomInfoHeading">
+        <div class="slds-col">
+            <h1>Room Photo</h1>
+        </div>
+        <div class="slds-col">
+            <h1>Room Number</h1>
+        </div>
+        <div class="slds-col">
+            <h1>Room Type</h1>
+        </div>
+        <div class="slds-col">
+            <h1>Status</h1>
+        </div>
+        <div class="slds-col">
+            <h1>Rate</h1>
+        </div>
+        <div class="slds-col">
+            <h1>Actions</h1>
+        </div>
+    </div>
+
+    <template for:each={rooms} for:item="room">
+        <div key={room.Id} class="slds-grid slds-wrap roomInfo">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
+                <!-- <h1>Room Image: {room.Room_Image__c}</h1> -->
+                <lightning-formatted-rich-text value={room.Room_Image__c}></lightning-formatted-rich-text>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
+                <h1>{room.Name}</h1>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
+                <h1>{room.Room_Type__c}</h1>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
+                <h1>{room.Status__c}</h1>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
+                <h1>{room.Rate__c}</h1>
+            </div>
+
+            <template if:true={room.showBookRoomButton}>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
+                    <lightning-button 
+                        variant="success"
+                        label="Book Room" 
+                        onclick={handleBookRoomClick} 
+                    ></lightning-button>
+                </div>
+            </template>
+            <template if:true={room.showAlreadyBookRoomButton}>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
+                    <lightning-button 
+                        variant="destructive"
+                        label="Already Booked" 
+                        onclick={handleAlreadyBookRoomClick} 
+                    ></lightning-button>
+                </div>
+            </template>
+        </div>
+    </template>
+
+    <template if:true={openBookModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-label="Meaningful description of the modal content" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+            </svg>
+            <span class="slds-assistive-text">Cancel and close</span>
+            </button>
+            <div class="slds-modal__content slds-p-around_medium slds-modal__content_headless" id="modal-content-id-1">
+                <h1>hi</h1>
+
+            </div>
+            <div class="slds-modal__footer">
+            <button onclick={handleBookCancelButton} class="slds-button slds-button_neutral" aria-label="Cancel and close">Cancel</button>
+            <button onclick={handleBookButton} class="slds-button slds-button_brand">Save</button>
+            </div>
+            </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+
+    </template>
+
+</template>
