@@ -46,6 +46,8 @@ export default class RoomsCheckInn extends LightningElement {
 
 
     //Book Button Operation
+    @track SingleColor;
+    @track singleColors;
     @track StoreRoomType = '';
     OnClickRoomTypes(event) {
         const Roomtype = event.currentTarget.dataset.name;
@@ -53,6 +55,11 @@ export default class RoomsCheckInn extends LightningElement {
         this.StoreRoomType = Roomtype;
         console.log('StoreRoomType',this.StoreRoomType)
         this.fetchavailableroom();
+
+      
+        if(Roomtype == this.StoreRoomType){
+            this.SingleColor = singleColors ;
+        }
     }
     
     @track roomId;
@@ -80,6 +87,7 @@ export default class RoomsCheckInn extends LightningElement {
         this.openBookModal = false;
     }
 
+    
     //Total Cost Validation
     @track costValue;
     handleTotalCostChange(event){

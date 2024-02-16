@@ -21,10 +21,10 @@
                     <h1><b>Type</b></h1>
                 </div>
                 <div class="slds-col">
-                    <h1><b>Status</b></h1>
+                    <h1><b>Rate</b></h1>
                 </div>
                 <div class="slds-col">
-                    <h1><b>Rate</b></h1>
+                    <h1><b>Status</b></h1>
                 </div>
                 <div class="slds-col">
                     <h1><b>Actions</b></h1>
@@ -32,7 +32,7 @@
             </div>
 
             <template for:each={rooms} for:item="room">
-                <div key={room.Id} class="slds-grid slds-wrap roomInfo">
+                <div key={room.Id} class="slds-grid slds-wrap roomInfo ">
                     <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
                         <lightning-formatted-rich-text value={room.Room_Image__c}></lightning-formatted-rich-text>
                     </div>
@@ -43,11 +43,11 @@
                         <h1>{room.Room_Type__c}</h1>
                     </div>
                     <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
-                        <h1>{room.Status__c}</h1>
-                    </div>
-                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
                         <h1>₹{room.Rate__c}</h1>
                     </div>
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
+                        <h1>{room.Status__c}</h1>
+                    </div>  
                     <template if:true={room.showBookRoomButton}>
                         <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
                             <lightning-button data-id={room.Id} variant="success" label="Book Room"
@@ -63,44 +63,46 @@
                     </template>
                 </div>
 
-            <template if:true={openBookModal}>
-                <section key={room.Id} role="dialog" tabindex="-1" aria-modal="true"
-                    aria-label="Meaningful description of the modal content" class="slds-modal slds-fade-in-open">
-                    <div class="slds-modal__container">
-                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
-                            <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
-                                <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
-                            </svg>
-                            <span class="slds-assistive-text">Cancel and close</span>
-                        </button>
+                <template if:true={openBookModal}>
+                    <section key={room.Id} role="dialog" tabindex="-1" aria-modal="true"
+                        aria-label="Meaningful description of the modal content" class="slds-modal slds-fade-in-open">
+                        <div style="width: 300px;" class="slds-modal__container">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                                </svg>
+                                <span class="slds-assistive-text">Cancel and close</span>
+                            </button>
 
-                        <div class=" mainContent slds-modal__content" id="modal-content-id-">
-                            <h1 class="formHeading">Book Your Room</h1>
-                            <lightning-record-edit-form object-api-name="Reservation__c">
-                                <lightning-messages></lightning-messages>
-                                <lightning-input-field field-name="Guest_Name__c" required></lightning-input-field>
-                                <lightning-input-field field-name="Check_in_Date__c"></lightning-input-field>
-                                <lightning-input-field field-name="Check_out_Date__c"></lightning-input-field>
-                                <p style="text-align: center;">Pay your Bill - <b>₹ {roomRate}</b></p>
-                                <lightning-input-field onchange={handleTotalCostChange} field-name="Total_Cost__c"></lightning-input-field>
-                              
-                                <div class="submit">
-                                <lightning-button class="slds-m-top_small" type="submit"
-                                    onclick={handleSubmitBookRoomClick} label="Submit">
-                                </lightning-button>
-                               </div>
-                            </lightning-record-edit-form>
+                            <div class=" mainContent slds-modal__content" id="modal-content-id-">
+                                <h1 class="formHeading">Book Your Room</h1>
+                                <lightning-record-edit-form object-api-name="Reservation__c">
+                                    <lightning-messages></lightning-messages>
+                                    <lightning-input-field class="guestName"
+                                        field-name="Guest_Name__c"></lightning-input-field>
+                                    <lightning-input-field field-name="Check_in_Date__c"></lightning-input-field>
+                                    <lightning-input-field field-name="Check_out_Date__c"></lightning-input-field>
+                                    <p style="text-align: center;">Pay your Bill - <b>₹ {roomRate}</b></p>
+                                    <lightning-input-field onchange={handleTotalCostChange}
+                                        field-name="Total_Cost__c"></lightning-input-field>
+
+                                    <div class="submit">
+                                        <lightning-button class="slds-m-top_small" type="submit"
+                                            onclick={handleSubmitBookRoomClick} label="Submit">
+                                        </lightning-button>
+                                    </div>
+                                </lightning-record-edit-form>
+                            </div>
+                            <div class="slds-modal__footer">
+                                <button onclick={handleBookCancelButton} class="slds-button slds-button_neutral"
+                                    aria-label="Cancel and close">Cancel</button>
+                                <!-- <button onclick={handleBookButton} class="slds-button slds-button_brand">Save</button> -->
+                            </div>
                         </div>
-                        <div class="slds-modal__footer">
-                            <button onclick={handleBookCancelButton} class="slds-button slds-button_neutral"
-                                aria-label="Cancel and close">Cancel</button>
-                            <!-- <button onclick={handleBookButton} class="slds-button slds-button_brand">Save</button> -->
-                        </div>
-                    </div>
-                </section>
-                <div key={room.Id} class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+                    </section>
+                    <div key={room.Id} class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+                </template>
             </template>
-        </template>
 
         </div>
     </div>
