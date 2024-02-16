@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            <template for:each={rooms} for:item="room" key={room.Id}>
+            <template for:each={rooms} for:item="room">
                 <div key={room.Id} class="slds-grid slds-wrap roomInfo">
                     <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
                         <lightning-formatted-rich-text value={room.Room_Image__c}></lightning-formatted-rich-text>
@@ -62,10 +62,9 @@
                         </div>
                     </template>
                 </div>
-            </template>
 
             <template if:true={openBookModal}>
-                <section role="dialog" tabindex="-1" aria-modal="true"
+                <section key={room.Id} role="dialog" tabindex="-1" aria-modal="true"
                     aria-label="Meaningful description of the modal content" class="slds-modal slds-fade-in-open">
                     <div class="slds-modal__container">
                         <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
@@ -74,18 +73,22 @@
                             </svg>
                             <span class="slds-assistive-text">Cancel and close</span>
                         </button>
-                        <div class="slds-modal__content slds-p-around_medium slds-modal__content_headless"
-                            id="modal-content-id-">
+
+                        <div class=" mainContent slds-modal__content" id="modal-content-id-">
                             <h1 class="formHeading">Book Your Room</h1>
                             <lightning-record-edit-form object-api-name="Reservation__c">
                                 <lightning-messages></lightning-messages>
-                                <lightning-input-field field-name="Guest_Name__c"></lightning-input-field>
+                                <lightning-input-field field-name="Guest_Name__c" required></lightning-input-field>
                                 <lightning-input-field field-name="Check_in_Date__c"></lightning-input-field>
                                 <lightning-input-field field-name="Check_out_Date__c"></lightning-input-field>
-                                <lightning-input-field field-name="Total_Cost__c"></lightning-input-field>
+                                <p style="text-align: center;">Pay your Bill - <b>₹ {roomRate}</b></p>
+                                <lightning-input-field onchange={handleTotalCostChange} field-name="Total_Cost__c"></lightning-input-field>
+                              
+                                <div class="submit">
                                 <lightning-button class="slds-m-top_small" type="submit"
                                     onclick={handleSubmitBookRoomClick} label="Submit">
                                 </lightning-button>
+                               </div>
                             </lightning-record-edit-form>
                         </div>
                         <div class="slds-modal__footer">
@@ -95,8 +98,10 @@
                         </div>
                     </div>
                 </section>
-                <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+                <div key={room.Id} class="slds-backdrop slds-backdrop_open" role="presentation"></div>
             </template>
+        </template>
+
         </div>
     </div>
 </template>

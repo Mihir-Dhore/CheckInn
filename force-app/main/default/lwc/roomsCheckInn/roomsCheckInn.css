@@ -44,7 +44,13 @@ h1 {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
+.submit{
+    display: flex;
+    justify-content: center;
+}
+.mainContent{
+    padding: 15px;
+}
 .allRooms:hover {
     background-color: #f36868;
 }

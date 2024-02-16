@@ -2,6 +2,8 @@ import { LightningElement, track,api } from 'lwc';
 import roomInfo from '@salesforce/apex/CheckInn.roomInfo';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import BookRelatedToRoom from '@salesforce/apex/CheckInn.BookRelatedToRoom';
+import fetchRoomRate from '@salesforce/apex/CheckInn.fetchRoomRate';
+
 export default class RoomsCheckInn extends LightningElement {
 
     connectedCallback(){
@@ -9,7 +11,7 @@ export default class RoomsCheckInn extends LightningElement {
         // this.roomDetails();
     }
 
-    //Filter - Start
+    //Filter and button condition - Start
     @track AllRoomsTemplate = true;
     @track AvailableRooms = [];
     @track rooms;
@@ -30,70 +32,90 @@ export default class RoomsCheckInn extends LightningElement {
 
                 this.rooms = this.AvailableRooms.filter(item => item.Room_Type__c === this.StoreRoomType);
                 if (this.rooms.length<=0) {
-                    this.rooms = JSON.stringify(this.AvailableRooms);
-                    console.log('AvailableRooms',this.rooms);
+                    this.rooms = this.AvailableRooms;
+                    // console.log('AvailableRooms',this.rooms);
                 }
-             console.log('length', this.rooms.length);   
+            //  console.log('length', this.rooms.length);   
                
             })
             .catch((error) => {
-                alert(error.body.message)
+                alert(error.body.message);
             });
     }
+    //Filter and button condition - End
 
+
+    //Book Button Operation
     @track StoreRoomType = '';
     OnClickRoomTypes(event) {
         const Roomtype = event.currentTarget.dataset.name;
         console.log('Room type',Roomtype)
         this.StoreRoomType = Roomtype;
+        console.log('StoreRoomType',this.StoreRoomType)
         this.fetchavailableroom();
     }
- //Filter - End
-
-    // roomDetails(){
-    //     roomInfo()
-    //     .then((result)=>{
-    //         console.log('result',result);
-    //         let arr = JSON.parse(JSON.stringify(result));
-    //         arr.forEach((item)=>{
-    //             if(item.Status__c =='Available'){
-    //                 item["showBookRoomButton"] = true;
-    //             }else{
-    //                 item["showAlreadyBookRoomButton"] = true;
-    //             }
-    //         })
-    //         this.rooms = arr;
-    //     }).catch(error=>{
-    //         console.log('error',error);
-    //     })   
-    // }
-
+    
     @track roomId;
+    @track roomRate;
     @track openBookModal = false;
     handleBookRoomClick(event){
         const recordId = event.currentTarget.dataset.id;
         console.log('room ID',recordId);
         this.roomId = recordId;
+        // console.log('Rate daataa',JSON.stringify(this.rooms));
         this.openBookModal = true;
+
+        fetchRoomRate({roomId:this.roomId})
+        .then(result=>{
+            console.log('this.roomRateREsult ',result)
+             const rr = result.forEach(item=>{
+                this.roomRate = item.Rate__c;
+                console.log('this.roomRate rr',rr)
+            });
+        }).catch(error=>{
+            console.log(error);
+        })
     }
     handleBookCancelButton(){
         this.openBookModal = false;
     }
 
-    handleSubmitBookRoomClick(){
+    //Total Cost Validation
+    @track costValue;
+    handleTotalCostChange(event){
+        this.costValue = event.target.value;
+        console.log(this.costValue);
+    }
 
-        BookRelatedToRoom({roomId:this.roomId})
-        .then(result=>{
+    handleSubmitBookRoomClick() {
+        if (this.costValue != this.roomRate) {
             const event = new ShowToastEvent({
-                title: 'Hurreeyyyy, Room Booked Succesfully🥂',
-                title: result,
-
-                variant: 'success',
+                title: 'Error',
+                message: 'Pay '+ this.roomRate + ' only',
+                variant: 'error',
                 mode: 'dismissable'
             });
             this.dispatchEvent(event);
-        }).catch(error=>{
-            alert(error);
-        })
+        } else {
+            BookRelatedToRoom({ roomId: this.roomId })
+                .then(result => {
+                    const successEvent = new ShowToastEvent({
+                        title: 'Success',
+                        message: 'Room Booked Successfully 🥂',
+                        variant: 'success',
+                        mode: 'dismissable'
+                    });
+                    this.dispatchEvent(successEvent);
+                })
+                .catch(error => {
+                    const errorEvent = new ShowToastEvent({
+                        title: 'Error',
+                        message: error.body.message,
+                        variant: 'error',
+                        mode: 'dismissable'
+                    });
+                    this.dispatchEvent(errorEvent);
+                });
+        }
     }
- }
+}
