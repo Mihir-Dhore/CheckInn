@@ -1,7 +1,14 @@
 <template>
+  <div class="main">
+    <div class="image">
+      <img class="hotel-logo" src={reservHotelImage} alt="Hotel Logo">
+    </div>
     <lightning-datatable
       key-field="id"
-      data={reservations.data}
+      data={reservData}
       columns={columns}
+      hide-checkbox-column
     ></lightning-datatable>
+
+  </div>
 </template>

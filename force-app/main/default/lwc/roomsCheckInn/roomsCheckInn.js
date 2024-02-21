@@ -1,10 +1,11 @@
 import { LightningElement, track,api } from 'lwc';
 import roomInfo from '@salesforce/apex/CheckInn.roomInfo';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import BookRelatedToRoom from '@salesforce/apex/CheckInn.BookRelatedToRoom';
+import BookWithRelatedAccount from '@salesforce/apex/CheckInn.BookWithRelatedAccount';
 import fetchRoomRate from '@salesforce/apex/CheckInn.fetchRoomRate';
 
 export default class RoomsCheckInn extends LightningElement {
+
 
     connectedCallback(){
         this.fetchavailableroom();
@@ -62,6 +63,30 @@ export default class RoomsCheckInn extends LightningElement {
         }
     }
     
+    //To insert Reservation
+    @track name;
+    handleNameChange(event){
+        this.name = event.target.value;
+        console.log(this.name)
+    }
+    @track totalMember;
+    handletotalMemberChange(event){
+        this.totalMember = event.target.value;
+    }
+    @track checkInDate;
+    handleCheckInDateTimeChange(event){
+        this.checkInDate = event.target.value;
+        console.log(this.checkInDate)
+    }
+    @track checkOutDate;
+    handleCheckOutDateTimeChange(event){
+        this.checkOutDate = event.target.value;
+    }
+    @track totalAmount;
+    handletotalAmountChange(event){
+        this.totalAmount = event.target.value;
+    }
+
     @track roomId;
     @track roomRate;
     @track openBookModal = false;
@@ -97,6 +122,9 @@ export default class RoomsCheckInn extends LightningElement {
 
     handleSubmitBookRoomClick() {
         if (this.costValue != this.roomRate) {
+            console.log('this.costValue',this.costValue)
+            console.log('this.roomRate',this.roomRate)
+
             const event = new ShowToastEvent({
                 title: 'Error',
                 message: 'Pay '+ this.roomRate + ' only',
@@ -105,8 +133,9 @@ export default class RoomsCheckInn extends LightningElement {
             });
             this.dispatchEvent(event);
         } else {
-            BookRelatedToRoom({ roomId: this.roomId })
+            BookWithRelatedAccount({ roomId: this.roomId, name:this.name,totalMember: this.totalMember,checkInDate:this.checkInDate, checkOutDate:this.checkOutDate, costValue:this.costValue })
                 .then(result => {
+                    console.log(result);
                     const successEvent = new ShowToastEvent({
                         title: 'Success',
                         message: 'Room Booked Successfully 🥂',

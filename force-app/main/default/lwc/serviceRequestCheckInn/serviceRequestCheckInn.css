@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* 100% of the viewport height */
+}
+
+.main {
+    width: 400px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    padding: 20px; /* Increased padding for better spacing */
+    background-color: rgb(235, 87, 87);
+}
+
+.heading {
+    text-align: center;
+    font-size: larger;
+    background-color: #ddd;
+    margin: 0; /* Remove default margin to improve alignment */
+    padding: 10px 0; /* Add padding for better visual appearance */
+}
+
+.button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* show service */
+.containerrr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.service-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 500px; 
+}
+
+.name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.room, .guest, .subject, .description {
+    margin-bottom: 5px;
+    font-size: medium;
+}
+.static{
+    font-size: large;
+    /* font-family: fantasy; */
+    font-weight: bold;
+}
+

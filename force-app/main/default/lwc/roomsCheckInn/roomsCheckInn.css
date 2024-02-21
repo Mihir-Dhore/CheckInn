@@ -67,7 +67,9 @@ h1 {
 .deluxeRoom:hover {
     background-color: #d9e627;
 }
-
+.nameColor{
+    color: white;
+}
 @media (max-width: 767px) {
     .roomInfo {
         flex-direction: row;

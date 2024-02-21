@@ -4,7 +4,7 @@
     padding: 15px;
     margin-bottom: 20px;
     box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.1);
-    background: linear-gradient(to right, #faa153, #f0a376); /* Gradient from Blue to Light Blue */
+    background-color: rgb(202, 48, 48);
 
 }
 .carousel {
@@ -17,18 +17,19 @@
 
 .hotel-info {
     padding-left: 15px;
+    color: #ddd;
 }
 
 .hotel-name {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 8px;
-    color: #333;
+    color: #e1dada;
 }
 
 .hotel-description {
     margin-bottom: 12px;
-    color: #666;
+    color: #f0eeee;
 }
 
 .contact-info {
@@ -40,18 +41,18 @@
 .hotel-phone,
 .hotel-email {
     margin-right: 20px;
-    color: #333;
+    color: #917f7f;
 }
 
 .total-rooms {
     font-size: 16px;
     margin-bottom: 8px;
-    color: #444;
+    color: #f0eeee;
 }
 
 .hotel-address {
     font-style: italic;
-    color: #555;
+    color: #f0eeee;
 }
 @media (max-width:756px) {
     .hotel-container {

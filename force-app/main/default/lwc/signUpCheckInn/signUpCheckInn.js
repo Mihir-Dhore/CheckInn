@@ -51,10 +51,10 @@ export default class SignUpCheckInn extends NavigationMixin(LightningElement) {
     @track passwordError;
     @track conPasswordError;
     handleSignUpClick(){
-        if(this.Password !== this.conPassword){
-            alert('Password do not matched');
-            // this.passwordError = 'Password do not matched';
-            // this.conPasswordError = 'Password do not matched';
+        // if(this.Password !== this.conPassword){
+        //     alert('Password do not matched');
+        //     // this.passwordError = 'Password do not matched';
+        //     // this.conPasswordError = 'Password do not matched';
         
  
         signUpUser({
@@ -71,4 +71,4 @@ export default class SignUpCheckInn extends NavigationMixin(LightningElement) {
         })
 
     }}
-}
+// }
