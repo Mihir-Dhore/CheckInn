@@ -27,10 +27,28 @@
 }
 
 /* show service */
-.containerrr {
+.headAdded{
+    text-align: center;
+    font-size: 25px;
+    padding: 5px;
+    font-family:cursive;
+    color: #ddd;
+}
+.AddedService {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: rgb(237, 59, 47);
+    /* background-color: rgba(224, 29, 29, 0.728); */
+
+}
+.ServiceReply{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgba(29, 95, 23, 0.836);
+    /* background-color: rgba(224, 29, 29, 0.728); */
+
 }
 
 .service-item {

@@ -1,18 +1,109 @@
 <template>
     <h1 class="heading">Hey, Welcome Admin!</h1>
 
-    <div class="slds-grid slds-gutters">
-        <div class="slds-col">
-        <span>1</span>
+    <div class="container">
+        <div class=" slds-grid slds-wrap slds-gutters">
+            <div onclick={handleAllRoomClick} class="allRoom slds-box slds-size_1-of-1 slds-small-size_1-of-2 slds-medium-size_1-of-3 slds-col slds-p-right_xx-small">
+                <h1 class="head">All Rooms</h1>
+                <h1 class="number">{AllRoom}</h1>
+            </div>
+
+            <div onclick={handleAvailableClick} class="availableRoom slds-box slds-box_small slds-col">
+                <h1 class="head">Available Rooms</h1>
+                <h1 class="number">{availableRoom}</h1>
+            </div>
+
+            <div onclick={handleOccupiedRoom} class="OccuRoom slds-box slds-box_small slds-col">
+                <h1 class="head">Occupied Rooms</h1>
+                <h1 class="number">{occupiedRooms}</h1>
+            </div>
         </div>
-        <div class="slds-col">
-        <span>2</span>
-        </div>
-        <div class="slds-col">
-        <span>3</span>
-        </div>
-        <div class="slds-col">
-        <span>4</span>
-        </div>
-        </div>
+    </div>
+
+    <!-- for All Rooms -->
+    <template if:true={showAllRooms}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_large">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                    <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Cancel and close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">All Room List</h1>
+                    <p class="slds-m-top_x-small"></p>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-datatable show-row-number-column
+                     key-field="id" data={rooms} columns={columnss} hide-checkbox-column>
+                    </lightning-datatable>
+                </div>
+                <div class="slds-modal__footer">
+                    <button onclick={cancelAllRooms} class="slds-button slds-button_neutral" aria-label="Cancel and close">Cancel</button>
+                    <!-- <button class="slds-button slds-button_brand">Save</button> -->
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+
+    <!-- For Available Room -->
+    <template if:true={showAvailableRooms}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_medium">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                    <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Cancel and close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-02" class="slds-modal__title slds-hyphenate">Available Room List</h1>
+                    <p class="slds-m-top_x-small"></p>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                    <lightning-datatable show-row-number-column
+                     key-field="id" data={aRoom} columns={column1} hide-checkbox-column>
+                    </lightning-datatable>
+                </div>
+                <div class="slds-modal__footer">
+                    <button onclick={cancelAllRooms} class="slds-button slds-button_neutral" aria-label="Cancel and close">Cancel</button>
+                    <!-- <button class="slds-button slds-button_brand">Save</button> -->
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+
+        <!-- For Occupied Room -->
+        <template if:true={showOccupiedRooms}>
+            <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+                class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                        <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                        </svg>
+                        <span class="slds-assistive-text">Cancel and close</span>
+                    </button>
+                    <div class="slds-modal__header">
+                        <h1 id="modal-heading-03" class="slds-modal__title slds-hyphenate">Occupied Room List</h1>
+                        <p class="slds-m-top_x-small"></p>
+                    </div>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+                        <lightning-datatable show-row-number-column
+                         key-field="id" data={oRoom} columns={column1} hide-checkbox-column>
+                        </lightning-datatable>
+                    </div>
+                    <div class="slds-modal__footer">
+                        <button onclick={cancelAllRooms} class="slds-button slds-button_neutral" aria-label="Cancel and close">Cancel</button>
+                        <!-- <button class="slds-button slds-button_brand">Save</button> -->
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+        </template>
+    
+
 </template>

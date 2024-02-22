@@ -1,0 +1,35 @@
+.red-background {
+    background-color: red;
+}
+.Replybutton{
+    width: 90px;
+}
+.formMain{
+    background-color: rgb(144, 203, 102);
+}
+.heading{
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.service-item{
+    background-color:#ddd;
+}
+.ServiceReply{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgba(29, 95, 23, 0.836);
+    /* background-color: rgba(224, 29, 29, 0.728); */
+
+}
+.service-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    width: 500px; 
+}
+
+

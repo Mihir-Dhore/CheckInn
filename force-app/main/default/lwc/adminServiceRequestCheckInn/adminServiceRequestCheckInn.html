@@ -1,0 +1,60 @@
+<template>
+    <div class="slds-grid slds-grid_pull-padded-medium">
+        <div class="slds-col slds-p-horizontal_medium">
+            <div class="slds-col">
+                <div class="slds-box">
+                    <template for:each={showServiceData} for:item="ss">
+                        <div key={ss.Id} class="service-item slds-box slds-p-around_x-small slds-wrap">
+                            <h1 class="name slds-text-heading_medium">{ss.Room__r.Name}</h1>
+                            <p class="room"><span class="static slds-text-title_caps">Name:</span> {ss.Name}</p>
+                            <p class="subject"><span class="static slds-text-title_caps">Subject:</span> {ss.Subject__c}
+                            </p>
+                            <p class="description"><span class="static slds-text-title_caps">Description:</span>
+                                {ss.Description__c}</p>
+                            <!-- <button></button> -->
+                            <button data-id={ss.Id} class="Replybutton slds-m-top_medium"
+                                onclick={handleReplyButton}>Reply</button>
+                        </div>
+                        <div key={ss.Id} class="slds-m-top_medium "></div> <!-- Space after each box -->
+                    </template>
+                </div>
+            </div>
+        </div>
+        <div class="slds-col slds-p-horizontal_medium">
+
+
+
+            <!-- Reply feature -->
+            <div class="formMain slds-box">
+                <template if:true={showForm}>
+                    <h1 class="heading">Reply Form</h1>
+                    <div>
+                        <lightning-textarea onchange={replyValueChange} value={replyValue} name="Reply"
+                            label="Add Reply" class="slds-m-bottom_medium"></lightning-textarea>
+                    </div>
+                    <!-- Space after the textarea -->
+                    <div class="slds-m-top_medium"></div>
+
+                    <div class="slds-text-align_center">
+                        <button class="slds-button slds-button_brand" onclick={handleReplySubmit}>Submit</button>
+                    </div>
+                    <!-- Space after the textarea -->
+                    <div class="slds-m-top_medium"></div>
+
+                </template>
+                <div class="ServiceReply">
+                    <!-- <h1 class="headAdded">Reply From Hotel</h1> -->
+                    <template for:each={showReply} for:item="sr">
+                        <div key={sr.Id} class="service-item">
+                            <p class="name"> <span class="static"></span> <b>:{sr.Service_Request__r.Name}</b></p>
+                            <p class="subject"><span class="static"></span> {sr.Reply__c}</p>
+                        </div>
+                    </template>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</template>

@@ -2,6 +2,7 @@ import { LightningElement, track } from 'lwc';
 import insertServiceRequest from '@salesforce/apex/CheckInn.insertServiceRequest';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import showServices from '@salesforce/apex/CheckInn.showServices';
+import showAdminReply from '@salesforce/apex/CheckInn.showAdminReply';
 
 export default class ServiceRequestCheckInn extends LightningElement {
 
@@ -48,6 +49,7 @@ handleSubmitClick(){
 
     connectedCallback(){
         this.showServices();
+        this.showAdminReply();
     }
      showServices(){
         showServices()
@@ -61,4 +63,15 @@ handleSubmitClick(){
         
      }
 
+     //Show Admin Reply
+
+     @track showReply;
+     showAdminReply(){
+        showAdminReply()
+        .then(result=>{
+            this.showReply = result;
+        }).catch(error=>{
+            console.log(error);
+        })
+     }
  }
