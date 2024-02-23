@@ -8,12 +8,18 @@ export default class AdminRoomCheckInn extends LightningElement {
     connectedCallback(){
         this.showRooms();
     }
-
     showRooms(){
         roomInfo()
         .then(result=>{
             console.log('room Info',result);
-            this.roomInfo = result;
+            this.roomInfo = result.map(item=>{
+                let statusColor = item.Status__c =='Occupied' ? 'slds-text-color_error':'slds-text-color_success'
+                console.log('status color',statusColor);
+                return{...item,
+                    "statusColor":statusColor,
+                }
+
+            });
         }).catch(error=>{
             console.log('error',error.message.body);
         })

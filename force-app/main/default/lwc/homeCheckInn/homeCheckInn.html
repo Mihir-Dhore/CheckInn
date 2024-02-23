@@ -6,13 +6,16 @@
             <div class="slds-size_1-of-2 slds-medium-size_1-of-3">
                 <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small carousel">
                     <lightning-carousel>
-                        <lightning-carousel-image src={hotelImg1} description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
+                        <lightning-carousel-image src={hotelImg1}
+                            description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
                             href="javascript:void(0);">
                         </lightning-carousel-image>
-                        <lightning-carousel-image src={hotelImg2} description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
+                        <lightning-carousel-image src={hotelImg2}
+                            description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
                             href="javascript:void(0);">
                         </lightning-carousel-image>
-                        <lightning-carousel-image src={hotelImg3} description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
+                        <lightning-carousel-image src={hotelImg3}
+                            description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
                             href="javascript:void(0);">
                         </lightning-carousel-image>
                     </lightning-carousel>
@@ -23,13 +26,16 @@
             <div class="slds-size_1-of-2 slds-medium-size_1-of-3">
                 <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
                     <lightning-carousel>
-                        <lightning-carousel-image src={hotelImg2} description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
+                        <lightning-carousel-image src={hotelImg2}
+                            description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
                             href="javascript:void(0);">
                         </lightning-carousel-image>
-                        <lightning-carousel-image src={hotelImg3} description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
+                        <lightning-carousel-image src={hotelImg3}
+                            description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
                             href="javascript:void(0);">
                         </lightning-carousel-image>
-                        <lightning-carousel-image src={hotelImg1} description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
+                        <lightning-carousel-image src={hotelImg1}
+                            description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
                             href="javascript:void(0);">
                         </lightning-carousel-image>
                     </lightning-carousel>
@@ -40,13 +46,16 @@
             <div class="slds-size_1-of-2 slds-medium-size_1-of-3">
                 <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
                     <lightning-carousel>
-                        <lightning-carousel-image src={hotelImg3} description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
+                        <lightning-carousel-image src={hotelImg3}
+                            description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
                             href="javascript:void(0);">
                         </lightning-carousel-image>
-                        <lightning-carousel-image src={hotelImg1} description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
+                        <lightning-carousel-image src={hotelImg1}
+                            description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
                             href="javascript:void(0);">
                         </lightning-carousel-image>
-                        <lightning-carousel-image src={hotelImg2} description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
+                        <lightning-carousel-image src={hotelImg2}
+                            description="All our guestrooms are elegantly furnished with handmade furniture include luxury en-suite facilities with complimentary amenities pack, flat screen LCD TV, tea/coffee making facilities, fan, hairdryer and the finest pure white linen and towels."
                             href="javascript:void(0);">
                         </lightning-carousel-image>
                     </lightning-carousel>
@@ -55,22 +64,23 @@
 
         </div>
 
+        <div class="slds-grid slds-wrap slds-gutters" key={hd.Id}>
 
-
-        <div key={hd.Id} class="slds-grid slds-gutters hotel-container">
-            <div class="slds-col slds-size_1-of-3 img">
-                <img class="hotel-logo" src={hotelNameLogo} alt="Hotel Logo">
-            </div>
-            <div class="slds-col slds-size_2-of-3 hotel-info">
-                <h1 class="hotel-name">{hd.Name}</h1>
-                <p class="hotel-description">{hd.Description__c}</p>
-                <div class="contact-info">
-                    <p class="hotel-phone">Phone: {hd.Phone__c}</p>
-                    <p class="hotel-email">Email: {hd.Email__c}</p>
+            <div key={hd.Id} class="centered-container">
+                <div class="image-container">
+                    <img class="rounded-image" src={hotelllogo} alt="img">
                 </div>
-                <p class="total-rooms">Total Rooms: {hd.Total_Rooms__c}</p>
-                <p class="hotel-address">{hd.Address__c}</p>
+            </div>
+            <div key={hd.Id} class="box-container">
+                <div class="box">
+                    <h1>{hd.Name}</h1>
+                    <p>{hd.Description__c}</p>
+                    <h2>{hd.Phone__c} || {hd.Email__c}</h2>
+                    <h2>{hd.Address__c}</h2>
+
+                </div>
             </div>
         </div>
+
     </template>
 </template>

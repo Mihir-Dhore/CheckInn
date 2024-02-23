@@ -1,5 +1,5 @@
 <template>
-    <button class="slds-button slds-m-left_large slds-m-bottom_medium" onclick={handleAddRoom}>Add Room</button>
+    <button class="slds-button slds-m-left_large slds-m-bottom_medium" title="Click this button to add a new room" onclick={handleAddRoom}>Add Room</button>
 
     <div class="mainHead slds-grid slds-box slds-gutters slds-m-left_medium slds-m-right_medium slds-p-around_medium">
         <div class="slds-col slds-col slds-size_1-of-4">
@@ -28,7 +28,7 @@
                 <p>₹{room.Rate__c}</p>
             </div>
             <div class="slds-col slds-col slds-size_1-of-4">
-                <p>{room.Status__c}</p>
+                <p class={room.statusColor}>{room.Status__c}</p>
             </div>
         </div>
     </template>

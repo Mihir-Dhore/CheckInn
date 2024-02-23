@@ -12,22 +12,22 @@
         <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_9-of-12">
             <div class="slds-grid slds-wrap roomInfoHeading">
                 <div class="slds-col">
-                    <h1><b>Image</b></h1>
+                    <h1 class="nameColor"><b>Image</b></h1>
                 </div>
                 <div class="slds-col">
-                    <h1><b>Number</b></h1>
+                    <h1 class="nameColor"><b>Number</b></h1>
                 </div>
                 <div class="slds-col">
-                    <h1><b>Type</b></h1>
+                    <h1 class="nameColor"><b>Type</b></h1>
                 </div>
                 <div class="slds-col">
-                    <h1><b>Rate</b></h1>
+                    <h1 class="nameColor"><b>Rate</b></h1>
                 </div>
                 <div class="slds-col">
-                    <h1><b>Status</b></h1>
+                    <h1 class="nameColor"><b>Status</b></h1>
                 </div>
                 <div class="slds-col">
-                    <h1><b>Actions</b></h1>
+                    <h1 class="nameColor"><b>Actions</b></h1>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
                     </div>  
                     <template if:true={room.showBookRoomButton}>
                         <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
-                            <lightning-button data-id={room.Id} variant="success" label="Book Room"
+                            <lightning-button data-id={room.Id} variant="brand" label="Book Room"
                                 onclick={handleBookRoomClick}></lightning-button>
                         </div>
                     </template>
