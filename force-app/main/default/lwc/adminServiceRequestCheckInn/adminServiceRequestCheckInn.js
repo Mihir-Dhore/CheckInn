@@ -5,6 +5,7 @@ import insertAdminReply from '@salesforce/apex/CheckInn.insertAdminReply';
 import showAdminReply from '@salesforce/apex/CheckInn.showAdminReply';
 
 export default class AdminServiceRequestCheckInn extends LightningElement {
+    
     @track showServiceData;
 
     @track colorCondition;

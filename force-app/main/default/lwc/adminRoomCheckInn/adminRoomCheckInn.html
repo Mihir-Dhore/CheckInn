@@ -1,0 +1,76 @@
+<template>
+    <button class="slds-button slds-m-left_large slds-m-bottom_medium" onclick={handleAddRoom}>Add Room</button>
+
+    <div class="mainHead slds-grid slds-box slds-gutters slds-m-left_medium slds-m-right_medium slds-p-around_medium">
+        <div class="slds-col slds-col slds-size_1-of-4">
+            <h2 class="slds-text-heading_small">Number</h2>
+        </div>
+        <div class="slds-col slds-col slds-size_1-of-4">
+            <h2 class="slds-text-heading_small">Type</h2>
+        </div>
+        <div class="slds-col slds-col slds-size_1-of-4">
+            <h2 class="slds-text-heading_small">Rate</h2>
+        </div>
+        <div class="slds-col slds-col slds-size_1-of-4">
+            <h2 class="slds-text-heading_small">Status</h2>
+        </div>
+    </div>
+    <template for:each={roomInfo} for:item="room">
+        <div key={room.Id}
+            class="innerHead slds-m-bottom_medium slds-m-top_medium slds-m-left_medium slds-m-right_medium slds-box slds-grid slds-gutters slds-p-around_medium">
+            <div class="slds-col slds-col slds-size_1-of-4">
+                <p class="slds-text-title_bold">{room.Name}</p>
+            </div>
+            <div class="slds-col slds-col slds-size_1-of-4">
+                <p>{room.Room_Type__c}</p>
+            </div>
+            <div class="slds-col slds-col slds-size_1-of-4">
+                <p>₹{room.Rate__c}</p>
+            </div>
+            <div class="slds-col slds-col slds-size_1-of-4">
+                <p>{room.Status__c}</p>
+            </div>
+        </div>
+    </template>
+
+    <!-- Modal Insert-->
+    <template if:true={showInsert}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                    <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close"></use>
+                    </svg>
+                    <span class="slds-assistive-text">Cancel and close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Add Room</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+                    <lightning-combobox name="picklistField" label="Room Type" value={selectedRoomTypeValue}
+                        placeholder="Choose an option" options={TypepicklistOptions}
+                        onchange={handleTypePicklistChange} required>
+                    </lightning-combobox>
+
+                    <lightning-combobox name="picklistField" label="Status" value={selectedRoomStatusValue}
+                        placeholder="Choose an option" options={StatuspicklistOptions}
+                        onchange={handleStatusPicklistChange} required>
+                    </lightning-combobox>
+
+                    <lightning-input type="currency" label="Enter amount" value={rate} placeholder="Enter amount"
+                        onchange={handleRateChange} required>
+                    </lightning-input>
+
+                </div>
+                <div class="slds-modal__footer">
+                    <button onclick={handleCancel} class="slds-button slds-button_neutral" aria-label="Cancel and close">Cancel</button>
+                    <button onclick={handleSaveClick} class="slds-button slds-button_brand">Save</button>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+
+    </template>
+</template>
