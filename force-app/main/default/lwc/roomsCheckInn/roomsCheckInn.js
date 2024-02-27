@@ -77,10 +77,14 @@ export default class RoomsCheckInn extends LightningElement {
     handleCheckInDateTimeChange(event){
         this.checkInDate = event.target.value;
         console.log(this.checkInDate)
+        this.validateDates();
+
     }
     @track checkOutDate;
     handleCheckOutDateTimeChange(event){
         this.checkOutDate = event.target.value;
+        this.validateDates();
+
     }
     @track totalAmount;
     handletotalAmountChange(event){
@@ -119,11 +123,32 @@ export default class RoomsCheckInn extends LightningElement {
         this.costValue = event.target.value;
         console.log(this.costValue);
     }
-
+    
     handleSubmitBookRoomClick() {
+            //To Make field required
+
+            let isValid = true;
+            this.template.querySelectorAll("lightning-input").forEach(item=>{
+                let fieldValue = item.value;
+                let fieldLabel = item.label;
+                let fieldError = 'Please Enter the';
+
+                if(!fieldValue){
+                    isValid = false;
+                    item.setCustomValidity(fieldError + " " + fieldLabel);
+                }else{
+                    item.setCustomValidity("");
+                }
+                item.reportValidity();
+            });
+            if(!isValid){
+                return;
+            }
+            
         if (this.costValue != this.roomRate) {
             console.log('this.costValue',this.costValue)
             console.log('this.roomRate',this.roomRate)
+
 
             const event = new ShowToastEvent({
                 title: 'Error',
