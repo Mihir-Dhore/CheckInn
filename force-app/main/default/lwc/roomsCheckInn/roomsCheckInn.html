@@ -1,4 +1,6 @@
 <template>
+    <h1 class="slds-text-align_center slds-text-title_caps slds-p-bottom_medium">Room Details</h1>
+
     <div class="slds-grid slds-wrap">
         <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
             <div class="roomTypes">
@@ -47,7 +49,7 @@
                     </div>
                     <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
                         <h1 class="nameColor">{room.Status__c}</h1>
-                    </div>  
+                    </div>
                     <template if:true={room.showBookRoomButton}>
                         <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
                             <lightning-button data-id={room.Id} variant="brand" label="Book Room"
@@ -76,31 +78,24 @@
 
                             <div class=" mainContent slds-modal__content" id="modal-content-id-">
                                 <h1 class="formHeading">Book Your Room</h1>
-                                
-                                <!-- <lightning-record-edit-form object-api-name="Reservation__c">
-                                    <lightning-messages></lightning-messages>
-                                    <lightning-input-field field-name="Guest_Name__c"></lightning-input-field>
-                                    <lightning-input-field field-name="Check_in_Date__c"></lightning-input-field>
-                                    <lightning-input-field field-name="Check_out_Date__c"></lightning-input-field>
-                                    <p style="text-align: center;">Pay your Bill - <b>₹ {roomRate}</b></p>
-                                    <lightning-input-field onchange={handleTotalCostChange} field-name="Total_Cost__c"></lightning-input-field>
-
-                                    <div class="submit">
-                                        <lightning-button class="slds-m-top_small" type="submit"
-                                            onclick={handleSubmitBookRoomClick} label="Submit">
-                                        </lightning-button>
-                                    </div>
-                                </lightning-record-edit-form> -->
-                                <lightning-input type="text" label="Name" value={name} onchange={handleNameChange}></lightning-input>
-                                <lightning-input type="number" label="Total Member" value={totalMember} onchange={handletotalMemberChange}></lightning-input>
-                                <lightning-input type="datetime" label="Check-in Date" value={checkInDate} onchange={handleCheckInDateTimeChange}></lightning-input>
-                                <lightning-input type="datetime" label="Check-out Date" value={checkOutDate} onchange={handleCheckOutDateTimeChange}></lightning-input>
+                                <lightning-input type="text" label="Name" value={name}
+                                    onchange={handleNameChange}></lightning-input>
+                                <lightning-input type="number" label="Total Member" value={totalMember}
+                                    onchange={handletotalMemberChange}></lightning-input>
+                                <lightning-input type="datetime" label="Check-in Date" value={checkInDate}
+                                    onchange={handleCheckInDateTimeChange}></lightning-input>
+                                <lightning-input type="datetime" label="Check-out Date" value={checkOutDate}
+                                    onchange={handleCheckOutDateTimeChange}></lightning-input>
                                 <p style="text-align: center;">Pay your Bill - <b>₹ {roomRate}</b></p>
-                                <lightning-input type="Number" value={costValue} onchange={handleTotalCostChange} label="Total Amount"></lightning-input>
+                                <lightning-input type="Number" value={costValue} onchange={handleTotalCostChange}
+                                    label="Total Amount"></lightning-input>
 
-                                <lightning-button class="slds-m-top_small" type="submit" onclick={handleSubmitBookRoomClick} label="Submit"></lightning-button>
+                                <div class="slds-m-top_medium slds-text-align_center">
+                                    <lightning-button class="slds-m-top_small" type="submit"
+                                        onclick={handleSubmitBookRoomClick} label="Submit"></lightning-button>
+                                </div>
 
-                        </div>
+                            </div>
                             <div class="slds-modal__footer">
                                 <button onclick={handleBookCancelButton} class="slds-button slds-button_neutral"
                                     aria-label="Cancel and close">Cancel</button>

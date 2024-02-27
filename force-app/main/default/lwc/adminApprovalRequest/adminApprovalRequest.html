@@ -1,0 +1,9 @@
+<template>
+    <div class="slds-p-around_medium">
+        <h1 class="slds-text-align_center slds-text-title_caps slds-p-bottom_medium">Approve Room</h1>
+        <div class="slds-m-top_medium table">
+            <lightning-datatable key-field="id" data={reservData} columns={columns} onrowaction={callRowAction}
+                hide-checkbox-column class="slds-table slds-table_bordered slds-table_col-bordered slds-row-hover"></lightning-datatable>
+        </div>
+    </div>
+</template>

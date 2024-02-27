@@ -1,5 +1,9 @@
 <template>
-    <button class="slds-button slds-m-left_large slds-m-bottom_medium" title="Click this button to add a new room" onclick={handleAddRoom}>Add Room</button>
+    <!-- <button class="slds-button slds-m-left_large slds-m-bottom_medium" title="Click this button to add a new room"
+        onclick={handleAddRoom}>Add Room</button> -->
+        <h1 class="slds-text-align_center slds-p-around_x-small slds-text-title_caps">Room Details</h1>
+
+    <lightning-button class="slds-button slds-m-left_large slds-m-bottom_medium" variant="brand-outline" label="Add Room" onclick={handleAddRoom}></lightning-button>
 
     <div class="mainHead slds-grid slds-box slds-gutters slds-m-left_medium slds-m-right_medium slds-p-around_medium">
         <div class="slds-col slds-col slds-size_1-of-4">
@@ -50,8 +54,8 @@
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
 
                     <lightning-combobox name="picklistField" label="Room Type" value={selectedRoomTypeValue}
-                        placeholder="Choose an option" options={TypepicklistOptions}
-                        onchange={handleTypePicklistChange} required>
+                        placeholder="Choose an option" options={TypepicklistOptions} onchange={handleTypePicklistChange}
+                        required>
                     </lightning-combobox>
 
                     <lightning-combobox name="picklistField" label="Status" value={selectedRoomStatusValue}
@@ -65,7 +69,8 @@
 
                 </div>
                 <div class="slds-modal__footer">
-                    <button onclick={handleCancel} class="slds-button slds-button_neutral" aria-label="Cancel and close">Cancel</button>
+                    <button onclick={handleCancel} class="slds-button slds-button_neutral"
+                        aria-label="Cancel and close">Cancel</button>
                     <button onclick={handleSaveClick} class="slds-button slds-button_brand">Save</button>
                 </div>
             </div>

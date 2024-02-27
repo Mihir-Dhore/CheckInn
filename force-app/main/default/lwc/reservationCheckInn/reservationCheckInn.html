@@ -1,14 +1,23 @@
 <template>
+  <h1 class="slds-text-align_center slds-text-title_caps slds-p-bottom_medium">Reservation Details</h1>
+
   <div class="main">
     <div class="image">
-      <img class="hotel-logo" src={reservHotelImage} alt="Hotel Logo">
+      <!-- <img class="hotel-logo" src={reservHotelImage} alt="Hotel Logo"> -->
     </div>
-    <lightning-datatable
+
+    <div class="booking">
+      <h1 class="booking">My Bookings</h1>
+    </div>
+
+    <div class="slds-m-top_medium table">
+      <lightning-datatable
       key-field="id"
       data={reservData}
       columns={columns}
       hide-checkbox-column
     ></lightning-datatable>
+    </div>
 
   </div>
 </template>
