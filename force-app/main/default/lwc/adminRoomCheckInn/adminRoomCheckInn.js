@@ -5,7 +5,6 @@ import insertRoom from '@salesforce/apex/CheckInn.insertRoom';
 export default class AdminRoomCheckInn extends LightningElement {
     @track roomInfo;
   
-    
     connectedCallback(){
         this.showRooms();
     }
