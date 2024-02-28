@@ -1,18 +1,29 @@
-# Salesforce DX Project: Next Steps
+<h1><b> CheckInn - Advanced Hotel Management System </b></h1><br>
+<h2>Description:</h2> <br>
+CheckInn is a sophisticated Hotel Management System designed to streamline the operations for both administrators and users, offering a seamless experience in managing hotel rooms and services. <br> The system features two panels - Admin and User, each equipped with login and logout functionalities.<br> <br>
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+<b>Admin Panel Features:</b> <br>
 
-## How Do You Plan to Deploy Your Changes?
+View all rooms, available rooms, and occupied rooms. <br>
+Respond to service requests submitted by users.<br>
+View and add rooms for the hotel.<br>
+Approve or reject room booking requests.<br>
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+<b>User Panel Features:</b> <br>
 
-## Configure Your Salesforce DX Project
+View all rooms, available rooms, and occupied rooms.<br>
+Book rooms and track booking status.<br>
+Withdraw booking requests.<br>
+Add service requests related to the room and view replies from the hotel.<br>
+Access information about the hotel.<br> <br>
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+<b>TECHNOLOGY USED:<b> <br>
+1. Lightning Web Component(LWC)
+2. Apex Classes
+3. Apex Triggers
+4. Experience Builder
+5. Flows
+6. Approval Process
+7. Created Custom Fields, Relationship and Objects
+8. Report and Dashboard
+   
