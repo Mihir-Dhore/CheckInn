@@ -1,18 +1,17 @@
-# Salesforce DX Project: Next Steps
+<h1><b> CheckInn - Advanced Hotel Management System </b></h1><br>
+<h2>Description:</h2> <br>
+CheckInn is a sophisticated Hotel Management System designed to streamline the operations for both administrators and users, offering a seamless experience in managing hotel rooms and services. The system features two panels - Admin and User, each equipped with login and logout functionalities.
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Admin Panel Features:
 
-## How Do You Plan to Deploy Your Changes?
+View all rooms, available rooms, and occupied rooms.
+Respond to service requests submitted by users.
+View and add rooms for the hotel.
+Approve or reject room booking requests.
+User Panel Features:
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
-
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+View all rooms, available rooms, and occupied rooms.
+Book rooms and track booking status.
+Withdraw booking requests.
+Add service requests related to the room and view replies from the hotel.
+Access information about the hotel.
