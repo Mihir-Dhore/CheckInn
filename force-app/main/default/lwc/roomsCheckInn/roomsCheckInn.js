@@ -3,6 +3,7 @@ import roomInfo from '@salesforce/apex/CheckInn.roomInfo';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import BookWithRelatedAccount from '@salesforce/apex/CheckInn.BookWithRelatedAccount';
 import fetchRoomRate from '@salesforce/apex/CheckInn.fetchRoomRate';
+import roomCount from '@salesforce/apex/CheckInn.roomCount';
 
 export default class RoomsCheckInn extends LightningElement {
 
@@ -18,7 +19,7 @@ export default class RoomsCheckInn extends LightningElement {
     @track rooms;
 
     fetchavailableroom() {
-        roomInfo()
+        roomInfo({offset:this.offset, pageSize:this.pageSize})
             .then((result) => {
                 console.log('ressss',result);
                 let arr = JSON.parse(JSON.stringify(result));
@@ -180,4 +181,41 @@ export default class RoomsCheckInn extends LightningElement {
                 });
         }
     }
+
+    // Pagination
+    @track offset = 0;
+    @track pageSize = 3;
+    @track disablePrevious = true;
+    @track disableNext = false;
+    @track totalRoomCount;
+
+    previousPage() {
+        this.offset = this.offset - this.pageSize;
+        this.fetchavailableroom();
+        this.updateButtonDisabledState();
+    }
+    
+    nextPage() {
+        this.offset = this.offset + this.pageSize;
+        console.log('next', this.offset);
+        let totalItems = this.rooms.length;
+        console.log('totalItems',totalItems)
+
+        this.fetchavailableroom();
+        roomCount()
+        .then(result=>{
+            this.totalRoomCount = result;
+            console.log('room Count', this.totalRoomCount);
+        })
+        this.updateButtonDisabledState();
+    }
+    
+    updateButtonDisabledState() {
+        let totalItems = this.rooms.length;
+        console.log('totalItems',totalItems)
+        this.disablePrevious = this.offset === 0;
+        this.disableNext = (this.offset + this.pageSize) >= this.totalRoomCount;
+    
+    }
+        
 }

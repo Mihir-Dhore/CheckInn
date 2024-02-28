@@ -107,6 +107,22 @@
                 </template>
             </template>
 
+            <!-- Pagination -->
+            <lightning-layout class="slds-p-around_small">
+                <div class="slds-align_absolute-center">
+                    <lightning-layout-item>
+                        <lightning-button label="Previous" icon-name="utility:chevronleft" data-type="previous"
+                        onclick={previousPage} disabled={disablePrevious}>
+                        </lightning-button>
+                    </lightning-layout-item>
+                    <lightning-layout-item flexibility="grow" class="slds-p-left_medium"></lightning-layout-item>
+                    <lightning-layout-item>
+                        <lightning-button label="Next" icon-name="utility:chevronright" data-type="next"
+                            icon-position="right" onclick={nextPage} disabled={disableNext}></lightning-button>
+                    </lightning-layout-item>
+                </div>
+            </lightning-layout>
+
         </div>
     </div>
 </template>
