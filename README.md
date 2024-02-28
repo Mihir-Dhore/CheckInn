@@ -15,4 +15,15 @@ View all rooms, available rooms, and occupied rooms.<br>
 Book rooms and track booking status.<br>
 Withdraw booking requests.<br>
 Add service requests related to the room and view replies from the hotel.<br>
-Access information about the hotel.<br>
+Access information about the hotel.<br> <br>
+
+<b>TECHNOLOGY USED:<b> <br>
+1. Lightning Web Component(LWC)
+2. Apex Classes
+3. Apex Triggers
+4. Experience Builder
+5. Flows
+6. Approval Process
+7. Created Custom Fields, Relationship and Objects
+8. Report and Dashboard
+   
