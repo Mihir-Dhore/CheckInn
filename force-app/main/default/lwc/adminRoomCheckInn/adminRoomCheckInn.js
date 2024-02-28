@@ -1,5 +1,5 @@
 import { LightningElement, track } from 'lwc';
-import roomInfo from '@salesforce/apex/CheckInn.roomInfo';
+import roomDetails from '@salesforce/apex/CheckInn.roomDetails';
 import insertRoom from '@salesforce/apex/CheckInn.insertRoom';
 
 export default class AdminRoomCheckInn extends LightningElement {
@@ -9,7 +9,7 @@ export default class AdminRoomCheckInn extends LightningElement {
         this.showRooms();
     }
     showRooms(){
-        roomInfo()
+        roomDetails()
         .then(result=>{
             console.log('room Info',result);
             this.roomInfo = result.map(item=>{

@@ -1,5 +1,5 @@
 import { LightningElement, track } from 'lwc';
-import roomInfo from '@salesforce/apex/CheckInn.roomInfo';
+import roomDetails from '@salesforce/apex/CheckInn.roomDetails';
 
 const columns = [
     // { label: 'Reservation Name', fieldName: 'Name' },
@@ -26,7 +26,7 @@ export default class AdminHomeCheckInn extends LightningElement {
         this.roomInfo();
     }
     roomInfo(){
-        roomInfo()
+        roomDetails()
         .then(result=>{
             this.rooms = result;
             console.log('this.rooms',JSON.stringify(this.rooms))
