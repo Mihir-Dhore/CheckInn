@@ -1,3 +1,11 @@
+/* Usin Styling hooks */
+.bookRoomBg{
+    /* --slds-c-button-brand-color-background : rgb(24, 139, 151); Provide Static color*/  
+       --slds-c-button-brand-color-background : var(--c-myBackgroundColor);/* Provide color dynamically through Design tokens */
+
+    /* --slds-c-button-brand-color-background-hover : #20e820; */
+    --slds-c-button-brand-color-border : black;
+}
 .roomInfo {
     margin-bottom: 15px;
     background-color: #ddd;

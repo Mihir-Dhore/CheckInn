@@ -8,8 +8,8 @@
                     <h1 class="heading">Add Service Request</h1>
 
                     <div>
-                        <lightning-input value={name} onchange={nameChange} type="text" label="Name"
-                            required></lightning-input>
+                        <lightning-input value={name} onchange={nameChange} type="text" label="Name" required="true"
+                            class="name"></lightning-input>
                         <lightning-input value={subject} onchange={subjectChange} type="text" label="Subject"
                             required></lightning-input>
                         <lightning-textarea value={description} onchange={descChange}
