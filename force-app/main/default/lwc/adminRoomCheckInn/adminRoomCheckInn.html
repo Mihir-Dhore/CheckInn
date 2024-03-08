@@ -1,9 +1,10 @@
 <template>
     <!-- <button class="slds-button slds-m-left_large slds-m-bottom_medium" title="Click this button to add a new room"
         onclick={handleAddRoom}>Add Room</button> -->
-        <h1 class="slds-text-align_center slds-p-around_x-small slds-text-title_caps">Room Details</h1>
+    <h1 class="slds-text-align_center slds-p-around_x-small slds-text-title_caps">Room Details</h1>
 
-    <lightning-button class="slds-button slds-m-left_large slds-m-bottom_medium" variant="brand-outline" label="Add Room" onclick={handleAddRoom}></lightning-button>
+    <lightning-button class="slds-button slds-m-left_large slds-m-bottom_medium" variant="brand-outline"
+        label="Add Room" onclick={handleAddRoom}></lightning-button>
 
     <div class="mainHead slds-grid slds-box slds-gutters slds-m-left_medium slds-m-right_medium slds-p-around_medium">
         <div class="slds-col slds-col slds-size_1-of-4">
@@ -19,11 +20,12 @@
             <h2 class="slds-text-heading_small">Status</h2>
         </div>
     </div>
-    <template for:each={roomInfo} for:item="room">
-        <div key={room.Id}
+    <template for:each={roomInfo} for:item="room" for:index="index">
+        <div key={room.Id} onchange={Change} draggable="true" ondrop={Drop} ondragstart={DragStart}
+            ondragover={DragOver} title={index}
             class="innerHead slds-m-bottom_medium slds-m-top_medium slds-m-left_medium slds-m-right_medium slds-box slds-grid slds-gutters slds-p-around_medium">
             <div class="slds-col slds-col slds-size_1-of-4">
-                <p class="slds-text-title_bold">{room.Name}</p>
+                <p class="slds-text-title_bold" title={index}>{room.Name}</p>
             </div>
             <div class="slds-col slds-col slds-size_1-of-4">
                 <p>{room.Room_Type__c}</p>
