@@ -1,4 +1,8 @@
 <h1><b> CheckInn - Advanced Hotel Management System </b></h1><br>
+<p><b>Login:- </b></p> 
+User:- cixeheg811@tupanda.com  Mihirdhore@1 <br>
+
+Admin:- sipofix998@massefm.com Mihirdhore@1 <br>
 <h2>Description:</h2> <br>
 CheckInn is a sophisticated Hotel Management System designed to streamline the operations for both administrators and users, offering a seamless experience in managing hotel rooms and services. <br> The system features two panels - Admin and User, each equipped with login and logout functionalities.<br> <br>
 
