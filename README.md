@@ -7,6 +7,8 @@ https://github.com/Mihir-Dhore/CheckInn/assets/83826641/77d7b46f-a366-484e-ae47-
 User:- cixeheg811@tupanda.comMihirdhore@1 <br>
 
 Admin:- sipofix998@massefm.comMihirdhore@1 <br>
+
+if found any query reach out to me on mihird7887@gmail.com <br>
 <h2>Description:</h2> <br>
 CheckInn is a sophisticated Hotel Management System designed to streamline the operations for both administrators and users, offering a seamless experience in managing hotel rooms and services. <br> The system features two panels - Admin and User, each equipped with login and logout functionalities.<br> <br>
 
